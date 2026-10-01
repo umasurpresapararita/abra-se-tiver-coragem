@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para você, Rita 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--ink:#5a3a55;--rose:#e86f9a;--rose2:#f7a8c4;--card:rgba(255,248,250,.9)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:'Quicksand',system-ui,sans-serif;color:var(--ink);
+background:linear-gradient(180deg,#1f1b4d 0%,#4a3a85 25%,#b567a6 55%,#f49ab5 78%,#ffd1a8 100%);background-attachment:fixed;overflow-x:hidden}
+.glow{position:fixed;left:50%;bottom:-20vmin;width:90vmin;height:90vmin;transform:translateX(-50%);
+background:radial-gradient(circle,#fff3c4 0%,rgba(255,220,170,.7) 25%,rgba(255,170,170,0) 65%);pointer-events:none}
+#stars{position:fixed;inset:0;pointer-events:none}
+.star{position:absolute;background:#fff;border-radius:50%;animation:tw 3s infinite ease-in-out}
+@keyframes tw{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+.screen{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
+h1{font-family:'Dancing Script',cursive;font-size:clamp(2rem,7vw,3.2rem);margin:0 0 6px;color:#fff;text-shadow:0 2px 14px rgba(120,40,110,.5);font-weight:600}
+.sub{color:#ffeef5;margin:0 0 36px;font-size:1.05rem}
+.row{display:flex;flex-direction:column;align-items:center;gap:22px;min-height:230px}
+button{font-family:inherit;border:0;cursor:pointer;color:#fff;font-weight:600}
+#no{width:min(78vw,300px);height:120px;font-size:2.4rem;border-radius:60px;background:linear-gradient(135deg,#b07ac9,#8a5fb8);box-shadow:0 10px 30px rgba(60,20,90,.4);transition:left .25s ease,top .25s ease;z-index:5}
+#yes{padding:9px 22px;font-size:.95rem;border-radius:20px;background:linear-gradient(135deg,var(--rose),var(--rose2));box-shadow:0 4px 14px rgba(232,111,154,.5)}
+#yes:hover{transform:scale(1.06)}
+#msg{display:none}
+.card{position:relative;max-width:640px;width:100%;margin:40px auto;background:var(--card);border-radius:28px;padding:56px 26px 34px;box-shadow:0 20px 60px rgba(80,30,90,.35);text-align:left;line-height:1.75;font-size:1.05rem}
+.card p{margin:0 0 16px;opacity:0;animation:up .8s forwards}
+.quote{font-family:'Dancing Script',cursive;font-size:1.5rem;line-height:1.5;color:#c24a7c;text-align:center;border-left:3px solid var(--rose2);padding-left:14px;margin:20px 0}
+.quote p{opacity:1!important;animation:none!important;margin:0 0 6px}
+.end{text-align:center;font-weight:600;color:#c24a7c}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.fl{position:absolute;width:64px;height:64px}
+.fl.a{top:-26px;left:50%;margin-left:-32px;width:80px;height:80px;margin-left:-40px}
+.fl.b{top:-14px;left:-14px;transform:rotate(-20deg)}
+.fl.c{top:-14px;right:-14px;transform:rotate(25deg)}
+.fl.d{bottom:-18px;right:14px;width:72px;height:72px}
+.fl.e{bottom:-14px;left:10px;width:52px;height:52px}
+.petal{position:fixed;top:-30px;font-size:20px;z-index:1;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+</style>
+</head>
+<body>
+<div id="stars"></div><div class="glow"></div>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="flower" viewBox="-50 -50 100 100">
+<g fill="#f7a8c4" stroke="#e86f9a" stroke-width="1.5">
+<ellipse cx="0" cy="-26" rx="12" ry="20"/><ellipse cx="0" cy="-26" rx="12" ry="20" transform="rotate(45)"/>
+<ellipse cx="0" cy="-26" rx="12" ry="20" transform="rotate(90)"/><ellipse cx="0" cy="-26" rx="12" ry="20" transform="rotate(135)"/>
+<ellipse cx="0" cy="-26" rx="12" ry="20" transform="rotate(180)"/><ellipse cx="0" cy="-26" rx="12" ry="20" transform="rotate(225)"/>
+<ellipse cx="0" cy="-26" rx="12" ry="20" transform="rotate(270)"/><ellipse cx="0" cy="-26" rx="12" ry="20" transform="rotate(315)"/></g>
+<circle r="11" fill="#ffd36e" stroke="#f0b040" stroke-width="2"/>
+</symbol></defs></svg>
+
+<main class="screen" id="ask">
+<h1>Escolha com sabedoria 🌷</h1>
+<p class="sub">Deseja prosseguir?</p>
+<div class="row" id="row">
+<button id="no">Não</button>
+<button id="yes">Sim</button>
+</div>
+</main>
+
+<main class="screen" id="msg">
+<article class="card">
+<svg class="fl a"><use href="#flower"/></svg><svg class="fl b"><use href="#flower"/></svg>
+<svg class="fl c"><use href="#flower"/></svg><svg class="fl d"><use href="#flower"/></svg><svg class="fl e"><use href="#flower"/></svg>
+<p>Tem dias em que a gente só quer ver o fim daquele dia. O coração aperta, vem aquele nó na garganta, e as lágrimas caem sem pausa.</p>
+<p>Às vezes, a saudade bate, o medo do futuro aparece, e a gente começa a pensar no que pode ser, no que poderia ter sido e até onde errou para estar sentindo e passando por tudo isso agora.</p>
+<p>A culpa não é sua. Você não precisa engolir tudo, não precisa guardar tudo dentro de si e nem colocar todo o peso do mundo sobre o seu coração.</p>
+<p>A única coisa que precisa colocar sobre ele é a certeza de que Deus ama e cuida de você.</p>
+<p>Às vezes, Ele não se manifesta da forma como imaginamos, como um ser distante ou inalcançável, mas através de pessoas, de gestos e de palavras.</p>
+<p>E assim como você é, Rita, um doce de pessoa... esse simples ato é para te lembrar de que tudo passa.</p>
+<p>Mas o amor de Deus por você permanece. É doce, delicado e aparece justamente nos momentos em que você menos espera, quando aquela vontade de sumir chega.</p>
+<p>É nesses momentos que Ele nos mostra:</p>
+<div class="quote"><p>“Eu ainda estou aqui.</p><p>Estou aqui por você.</p><p>Mesmo onde você não espera, mesmo onde você não imagina, Eu estou cuidando de você.”</p></div>
+<p>Que esse simples gesto seja um lembrete de que você não está sozinha.</p>
+<p>Tudo passa. Os dias difíceis passam, a dor passa, a saudade encontra seu lugar.</p>
+<p class="end">Mas o amor de Deus por você permanece. ❤️</p>
+</article>
+</main>
+
+<script>
+// estrelas
+const st=document.getElementById('stars');
+for(let i=0;i<90;i++){const s=document.createElement('i');s.className='star';const z=Math.random()*2.5+1;
+s.style.cssText=`width:${z}px;height:${z}px;left:${Math.random()*100}%;top:${Math.random()*65}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;st.appendChild(s)}
+
+// botão "Não" que foge
+const no=document.getElementById('no'),yes=document.getElementById('yes');
+let px=-999,py=-999;
+function dodge(){
+  const w=no.offsetWidth,h=no.offsetHeight,vw=window.innerWidth,vh=window.innerHeight,y=yes.getBoundingClientRect();
+  let best=null;
+  for(let i=0;i<40;i++){
+    const x=8+Math.random()*Math.max(0,vw-w-16),t=8+Math.random()*Math.max(0,vh-h-16);
+    const overlap=x<y.right+20&&x+w>y.left-20&&t<y.bottom+20&&t+h>y.top-20;
+    const d=Math.hypot(x+w/2-px,t+h/2-py);
+    if(!overlap&&(!best||d>best.d)){best={x,t,d};if(d>160)break}
+  }
+  if(!best)return;
+  no.style.position='fixed';no.style.left=best.x+'px';no.style.top=best.t+'px';
+}
+['pointerenter','pointerdown','touchstart','mousedown','focus'].forEach(e=>no.addEventListener(e,ev=>{
+  if(ev.clientX!==undefined){px=ev.clientX;py=ev.clientY}
+  if(ev.cancelable)ev.preventDefault();dodge();no.blur()},{passive:false}));
+no.addEventListener('click',ev=>{ev.preventDefault();dodge()});
+document.addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY;
+  const r=no.getBoundingClientRect();
+  if(Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2))<r.width/2+30&&no.style.position==='fixed')dodge()});
+
+// sim
+yes.addEventListener('click',()=>{
+  document.getElementById('ask').style.display='none';
+  no.style.display='none';
+  document.getElementById('msg').style.display='flex';
+  window.scrollTo(0,0);
+  document.querySelectorAll('.card > p').forEach((p,i)=>p.style.animationDelay=(i*0.5)+'s');
+  const em=['🌸','🌷','🌺','💮','✨'];
+  for(let i=0;i<18;i++){const p=document.createElement('span');p.className='petal';p.textContent=em[i%5];
+    p.style.left=Math.random()*100+'vw';p.style.animationDuration=(7+Math.random()*7)+'s';p.style.animationDelay=(Math.random()*6)+'s';
+    document.body.appendChild(p)}
+});
+</script>
+</body>
+</html>
